@@ -35,5 +35,6 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     fun submitList(list : ArrayList<UserProfiles>){
         userProfilesList = list
         notifyDataSetChanged()
+        //Mvvm
     }
 }
