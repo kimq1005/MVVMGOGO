@@ -62,8 +62,19 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
-
     // Kotlin components
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+
+    implementation 'com.tickaroo.tikxml:annotation:0.8.13'
+    implementation 'com.tickaroo.tikxml:core:0.8.13'
+    implementation 'com.tickaroo.tikxml:retrofit-converter:0.8.13'
+    kapt 'com.tickaroo.tikxml:processor:0.8.13'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.retrofit2:converter-simplexml:2.9.0"
+    implementation "com.squareup.retrofit2:converter-jaxb:2.9.0"
+
 }

@@ -10,9 +10,11 @@
         <entry key="app/src/main/res/layout/activity_mvvm_recycler_view_main.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_recy_main.xml" value="0.11614583333333334" />
         <entry key="app/src/main/res/layout/activity_recycler_view_main.xml" value="0.2328125" />
+        <entry key="app/src/main/res/layout/activity_retrofit_mvvm_main.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/activity_room_mvvm_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/mainitem.xml" value="0.335" />
         <entry key="app/src/main/res/layout/todoitem.xml" value="0.1" />
+        <entry key="app/src/main/res/xml/network_config.xml" value="0.1" />
       </map>
     </option>
   </component>

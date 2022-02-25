@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
+    //그럼 이게 Entity가 되겠고
     private val _userProfileList = MutableLiveData<ArrayList<UserProfiles>>()
 
     val userProfilesList: LiveData<ArrayList<UserProfiles>>

@@ -26,8 +26,6 @@ class recy_main_activity : AppCompatActivity() {
 
         recyclerViewset()
 
-
-
     }
 
     private fun recyclerViewset() {
