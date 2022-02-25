@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/activity_retrofit_mvvm_main.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/activity_room_mvvm_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/mainitem.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/retrofit_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/todoitem.xml" value="0.1" />
         <entry key="app/src/main/res/xml/network_config.xml" value="0.1" />
       </map>

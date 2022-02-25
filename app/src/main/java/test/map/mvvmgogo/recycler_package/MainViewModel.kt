@@ -17,7 +17,7 @@ class MainViewModel : ViewModel() {
     init{
         items = arrayListOf(
             UserProfiles("김승현",27),
-            UserProfiles("아이유",30)
+            UserProfiles("rrrrr",3022)
         )
 
         _userProfileList.value = items
