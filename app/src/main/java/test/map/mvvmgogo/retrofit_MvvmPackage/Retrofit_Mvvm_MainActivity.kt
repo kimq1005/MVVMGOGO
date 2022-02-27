@@ -1,16 +1,15 @@
-package test.map.mvvmgogo.Retrofit_Mvvm_Package
+package test.map.mvvmgogo.retrofit_MvvmPackage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Response
-import test.map.mvvmgogo.Retrofit_Mvvm_Package.retrofit.Retrofit_Client
-import test.map.mvvmgogo.Retrofit_Mvvm_Package.retrofit.Retrofit_InterFace
+import test.map.mvvmgogo.retrofit_MvvmPackage.retrofit.Retrofit_Client
+import test.map.mvvmgogo.retrofit_MvvmPackage.retrofit.Retrofit_InterFace
 import test.map.mvvmgogo.Utils.Companion.TAG
 import test.map.mvvmgogo.databinding.ActivityRetrofitMvvmMainBinding
 
@@ -27,6 +26,7 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
 
     private lateinit var retrofitMvvmAdapter: Retrofit_Mvvm_Adapter
     private lateinit var retrofitMainviewmodel: Retrofit_MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retrofitMvvmMainBinding = ActivityRetrofitMvvmMainBinding.inflate(layoutInflater)
@@ -51,6 +51,9 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
                     val hello = body.body.items.item
                     retrofitMainviewmodel.setStationBusItem(hello)
 
+
+
+                    //이게 실질적으로 데이터가 저장되어있는 viewModel에서 데이터를 불러온거임
                     retrofitMainviewmodel.stationItem.observe(
                         this@Retrofit_Mvvm_MainActivity,
                         Observer { it ->

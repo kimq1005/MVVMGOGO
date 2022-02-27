@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMGOGO">
         <activity
-            android:name=".Retrofit_Mvvm_Package.Retrofit_Mvvm_MainActivity"
+            android:name=".retrofit_MvvmPackage.Retrofit_Mvvm_MainActivity"
             android:exported="false" />
         <activity
             android:name=".mvvm_RecyclerView_Package.Mvvm_RecyclerView_MainActivity"

@@ -1,4 +1,4 @@
-package test.map.mvvmgogo.Retrofit_Mvvm_Package.retrofit
+package test.map.mvvmgogo.retrofit_MvvmPackage.retrofit
 
 import com.tickaroo.tikxml.TikXml
 import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory

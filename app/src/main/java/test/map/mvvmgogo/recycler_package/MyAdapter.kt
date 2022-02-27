@@ -13,7 +13,6 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
         fun bind(userProfiles: UserProfiles) {
             binding.userprofiles = userProfiles
-
         }
 
 

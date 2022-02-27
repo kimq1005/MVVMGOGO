@@ -1,4 +1,4 @@
-package test.map.mvvmgogo.Retrofit_Mvvm_Package
+package test.map.mvvmgogo.retrofit_MvvmPackage
 
 import com.tickaroo.tikxml.annotation.Element
 import com.tickaroo.tikxml.annotation.PropertyElement

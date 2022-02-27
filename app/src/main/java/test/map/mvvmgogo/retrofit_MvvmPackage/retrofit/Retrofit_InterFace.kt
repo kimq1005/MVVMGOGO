@@ -1,10 +1,11 @@
-package test.map.mvvmgogo.Retrofit_Mvvm_Package.retrofit
+package test.map.mvvmgogo.retrofit_MvvmPackage.retrofit
 
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.Url
-import test.map.mvvmgogo.Retrofit_Mvvm_Package.StationBus
+import test.map.mvvmgogo.retrofit_MvvmPackage.StationBus
+
 
 interface Retrofit_InterFace {
 

@@ -1,4 +1,4 @@
-package test.map.mvvmgogo.Retrofit_Mvvm_Package
+package test.map.mvvmgogo.retrofit_MvvmPackage
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -13,7 +13,9 @@ class Retrofit_Mvvm_Adapter : RecyclerView.Adapter<Retrofit_Mvvm_Adapter.MvvmVie
     inner class MvvmViewHolder(private val binding: RetrofitItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(stationItem: StationItem) {
-            binding.StationName.text = stationItem.nodenm
+
+            //data binding으로 코드가 간결해짐
+            binding.stationitem = stationItem
         }
     }
 
@@ -27,11 +29,11 @@ class Retrofit_Mvvm_Adapter : RecyclerView.Adapter<Retrofit_Mvvm_Adapter.MvvmVie
     }
 
     override fun getItemCount(): Int {
-        return  stationItem.size
+        return stationItem.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(list:List<StationItem>){
+    fun submitList(list: List<StationItem>) {
         stationItem = list
         notifyDataSetChanged()
     }
