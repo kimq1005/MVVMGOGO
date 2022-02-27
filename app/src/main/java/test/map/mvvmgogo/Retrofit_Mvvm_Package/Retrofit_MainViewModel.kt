@@ -4,18 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class Retrofit_MainViewModel:ViewModel() {
+class Retrofit_MainViewModel : ViewModel() {
 
-    private val _StationBus = MutableLiveData<ArrayList<StationBus>>()
+    private val _stationItem = MutableLiveData<List<StationItem>>()
 
-    private var items = ArrayList<StationBus>()
+    val stationItem : LiveData<List<StationItem>>
+        get() = _stationItem
 
-    val stationbus:LiveData<ArrayList<StationBus>> get() = _StationBus
 
-    init {
-        items
-
-        _StationBus.value = items
+    //retrofit data viewModel연결
+    fun setStationBusItem(list : List<StationItem>){
+        _stationItem.value = list
     }
 
 
