@@ -3,8 +3,10 @@ package test.map.mvvmgogo.retrofit_MvvmPackage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import retrofit2.Call
 import retrofit2.Response
@@ -12,6 +14,8 @@ import test.map.mvvmgogo.retrofit_MvvmPackage.retrofit.Retrofit_Client
 import test.map.mvvmgogo.retrofit_MvvmPackage.retrofit.Retrofit_InterFace
 import test.map.mvvmgogo.Utils.Companion.TAG
 import test.map.mvvmgogo.databinding.ActivityRetrofitMvvmMainBinding
+import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestEntity
+import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestRoomViewModel
 
 class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
 
@@ -27,6 +31,8 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
     private lateinit var retrofitMvvmAdapter: Retrofit_Mvvm_Adapter
     private lateinit var retrofitMainviewmodel: Retrofit_MainViewModel
 
+    private lateinit var roomViewModel: TestRoomViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retrofitMvvmMainBinding = ActivityRetrofitMvvmMainBinding.inflate(layoutInflater)
@@ -35,11 +41,39 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
 //
 
         retrofitMainviewmodel = ViewModelProvider(this).get(Retrofit_MainViewModel::class.java)
-
+        roomViewModel = ViewModelProvider(this,  TestRoomViewModel.Factory(application)).get(TestRoomViewModel::class.java)
         setRetrofitCall("31010", "우남")
+
+        binding.titleTextview.text = "우남 아파트"
+
+        binding.saveBtn.setOnClickListener {
+            getAll()
+        }
+
+
+
+
 
 
     }
+
+    private fun saveData() {
+        binding.saveBtn.setOnClickListener {
+            val stationname = TestEntity(null,binding.titleTextview.text.toString())
+            roomViewModel.addStation(binding.titleTextview.text.toString())
+            Toast.makeText(this,"저장 완료",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+    private fun getAll(){
+
+        roomViewModel.getAllstation().observe(this, Observer {
+            Log.d(TAG, "getall 테스트: $it")
+        })
+
+    }
+
 
     private fun setRetrofitCall(citycode: String, stationName: String?) {
         val stationcall = retrofitInterface.StationNameGet(citycode, stationName, null)
@@ -60,8 +94,6 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
                             setRecyclerView(it)
                         })
                 }
-
-
             }
 
             override fun onFailure(call: Call<StationBus>, t: Throwable) {
@@ -80,4 +112,16 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
             retrofitMvvmAdapter.submitList(stationItem)
         }
     }
+
+    private fun RecyclerView(stationItem: List<StationItem>){
+        retrofitMvvmAdapter = Retrofit_Mvvm_Adapter()
+
+        binding.myrecyclreView.apply {
+            adapter = retrofitMvvmAdapter
+            layoutManager=LinearLayoutManager(context)
+            retrofitMvvmAdapter.submitList(stationItem)
+        }
+    }
+
+
 }
