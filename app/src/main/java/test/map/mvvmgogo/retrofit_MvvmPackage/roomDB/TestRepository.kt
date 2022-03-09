@@ -10,17 +10,21 @@ class TestRepository(application: Application) {
 
     init{
         var db : TestDataBase = TestDataBase.getinstance(application)!!
-        testdao = db.testDao()
+        testdao = db!!.testDao()
         stationList = db.testDao().stationgetAll()
     }
 
 
-    fun inert(testEntity: TestEntity){
+   fun inert(testEntity: TestEntity){
         testdao.addStation(testEntity)
     }
 
     fun getAll() : LiveData<List<TestEntity>>{
         return testdao.stationgetAll()
+    }
+
+    fun delete(testEntity: TestEntity){
+        testdao.delete(testEntity)
     }
 
 }

@@ -13,6 +13,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import test.map.mvvmgogo.Utils.Companion.TAG
 import test.map.mvvmgogo.databinding.ActivityRoomMvvmMainBinding
+import test.map.mvvmgogo.retrofit_MvvmPackage.OnDeleteInterFace
+import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestEntity
 
 class RoomMvvm_MainActivity : AppCompatActivity() {
 
@@ -94,4 +96,5 @@ class RoomMvvm_MainActivity : AppCompatActivity() {
             delete.await()
         }
     }
+
 }

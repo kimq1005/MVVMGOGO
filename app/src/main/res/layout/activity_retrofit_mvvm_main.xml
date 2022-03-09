@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="retrofitviewModel"
             type="test.map.mvvmgogo.retrofit_MvvmPackage.Retrofit_MainViewModel" />
@@ -33,10 +32,20 @@
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toTopOf="@id/saveBtn"
+            app:layout_constraintBottom_toTopOf="@id/roomRecyclerView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleTextview" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/myrecyclreView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+            android:id="@+id/roomRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
 
         <Button
             android:id="@+id/saveBtn"
@@ -44,8 +53,15 @@
             android:layout_height="wrap_content"
             android:text="SAVE"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:text="DELETE"
+            android:id="@+id/deletebtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

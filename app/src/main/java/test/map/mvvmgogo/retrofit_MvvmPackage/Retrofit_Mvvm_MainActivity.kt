@@ -3,6 +3,7 @@ package test.map.mvvmgogo.retrofit_MvvmPackage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,9 +16,10 @@ import test.map.mvvmgogo.retrofit_MvvmPackage.retrofit.Retrofit_InterFace
 import test.map.mvvmgogo.Utils.Companion.TAG
 import test.map.mvvmgogo.databinding.ActivityRetrofitMvvmMainBinding
 import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestEntity
+import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestRoomAdapter
 import test.map.mvvmgogo.retrofit_MvvmPackage.roomDB.TestRoomViewModel
 
-class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
+class Retrofit_Mvvm_MainActivity : AppCompatActivity(), OnDeleteInterFace {
 
     private var retrofitMvvmMainBinding: ActivityRetrofitMvvmMainBinding? = null
     private val binding get() = retrofitMvvmMainBinding!!
@@ -29,9 +31,14 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
 
 
     private lateinit var retrofitMvvmAdapter: Retrofit_Mvvm_Adapter
-    private lateinit var retrofitMainviewmodel: Retrofit_MainViewModel
+    private lateinit var roomAdapter: TestRoomAdapter
 
+
+
+    private lateinit var retrofitMainviewmodel: Retrofit_MainViewModel
     private lateinit var roomViewModel: TestRoomViewModel
+
+    lateinit var testEntity : List<TestEntity>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,33 +51,62 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
         roomViewModel = ViewModelProvider(this,  TestRoomViewModel.Factory(application)).get(TestRoomViewModel::class.java)
         setRetrofitCall("31010", "우남")
 
+        saveData()
+        getAll()
+
         binding.titleTextview.text = "우남 아파트"
 
-        binding.saveBtn.setOnClickListener {
-            getAll()
+//        setRoomRecyclerView()
+        testgetAll()
+
+
+
+    }
+
+    private fun testgetAll(){
+        roomViewModel.getAllstation().observe(this, Observer {
+            Log.d(TAG, "이이이이이이잉ㅇ: $it")
+        })
+        Log.d(TAG, "이이이이이이잉ㅇ: ${roomViewModel.getAllstation()}")
+    }
+
+    private fun setRoomRecyclerView() {
+
+        roomAdapter = TestRoomAdapter(this)
+
+        roomViewModel.testEntity.observe(this, Observer {
+            roomAdapter.submitlist(it)
+        })
+
+        binding.roomRecyclerView.apply {
+            adapter = roomAdapter
+            layoutManager = LinearLayoutManager(context)
         }
-
-
-
-
 
 
     }
 
     private fun saveData() {
         binding.saveBtn.setOnClickListener {
-            val stationname = TestEntity(null,binding.titleTextview.text.toString())
             roomViewModel.addStation(binding.titleTextview.text.toString())
-            Toast.makeText(this,"저장 완료",Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun delete(testEntity: TestEntity){
+        roomViewModel.deleteStation(testEntity)
     }
 
 
     private fun getAll(){
-
+        roomAdapter = TestRoomAdapter(this)
         roomViewModel.getAllstation().observe(this, Observer {
-            Log.d(TAG, "getall 테스트: $it")
+            roomAdapter.submitlist(it)
         })
+
+        binding.roomRecyclerView.apply {
+            adapter = roomAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
 
     }
 
@@ -113,6 +149,8 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun RecyclerView(stationItem: List<StationItem>){
         retrofitMvvmAdapter = Retrofit_Mvvm_Adapter()
 
@@ -121,6 +159,10 @@ class Retrofit_Mvvm_MainActivity : AppCompatActivity() {
             layoutManager=LinearLayoutManager(context)
             retrofitMvvmAdapter.submitList(stationItem)
         }
+    }
+
+    override fun onDeleteStationList(testEntity: TestEntity) {
+        delete(testEntity)
     }
 
 
