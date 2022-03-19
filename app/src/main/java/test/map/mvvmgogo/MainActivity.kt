@@ -7,6 +7,7 @@ import test.map.mvvmgogo.dataBinding_Package.DataBinding_MainActivity
 import test.map.mvvmgogo.LiveData_ViewModel_Package.LiveData_ViewModel_MainActivity
 import test.map.mvvmgogo.retrofit_MvvmPackage.Retrofit_Mvvm_MainActivity
 import test.map.mvvmgogo.databinding.ActivityMainBinding
+import test.map.mvvmgogo.double_recyclerview_Package.Double_RecyclerViewMainActivity
 import test.map.mvvmgogo.recycler_package.recy_main_activity
 import test.map.mvvmgogo.room_Package.RoomMvvm_MainActivity
 
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.roomMvvmMainActivity.setOnClickListener {
             val intent = Intent(this, RoomMvvm_MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.DoubleRecyclerView.setOnClickListener {
+            val intent = Intent(this, Double_RecyclerViewMainActivity::class.java)
             startActivity(intent)
         }
 

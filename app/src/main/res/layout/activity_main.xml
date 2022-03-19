@@ -42,5 +42,11 @@
         android:layout_height="wrap_content"
         android:text="Room_Mvvm_MainActivity" />
 
+    <Button
+        android:id="@+id/DoubleRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DoubleRecyclerView" />
+
 
 </LinearLayout>
