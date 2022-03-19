@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_data_binding_main.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/activity_live_data_view_model_main.xml" value="0.2328125" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.11614583333333334" />
         <entry key="app/src/main/res/layout/activity_mvvm_recycler_view_main.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_recy_main.xml" value="0.11614583333333334" />
