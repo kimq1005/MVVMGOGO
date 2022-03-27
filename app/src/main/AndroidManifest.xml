@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMGOGO">
         <activity
+            android:name=".koin_Package.KoinMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".multiRecyclerView_Package.MultiViewActivity"
             android:exported="false" />
         <activity

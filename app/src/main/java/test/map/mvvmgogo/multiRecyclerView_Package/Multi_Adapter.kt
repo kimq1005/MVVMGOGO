@@ -116,7 +116,6 @@ class Multi_Adapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val multi_type1 = 1
         private const val multi_type2 = 2
         private const val multi_type3 = 3
-
     }
 
 
