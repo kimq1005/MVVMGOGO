@@ -8,6 +8,7 @@ import test.map.mvvmgogo.LiveData_ViewModel_Package.LiveData_ViewModel_MainActiv
 import test.map.mvvmgogo.retrofit_MvvmPackage.Retrofit_Mvvm_MainActivity
 import test.map.mvvmgogo.databinding.ActivityMainBinding
 import test.map.mvvmgogo.double_recyclerview_Package.Double_RecyclerViewMainActivity
+import test.map.mvvmgogo.koin_Package.KoinMainActivity
 import test.map.mvvmgogo.multiRecyclerView_Package.MultiViewActivity
 import test.map.mvvmgogo.recycler_package.recy_main_activity
 import test.map.mvvmgogo.room_Package.RoomMvvm_MainActivity
@@ -54,6 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.MultiRecyclerView.setOnClickListener {
             val intent = Intent(this, MultiViewActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.Koin.setOnClickListener {
+            val intent = Intent(this, KoinMainActivity::class.java)
             startActivity(intent)
         }
 

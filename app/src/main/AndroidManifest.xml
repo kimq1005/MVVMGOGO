@@ -11,6 +11,7 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".koin_Package.MyApp"
         android:theme="@style/Theme.MVVMGOGO">
         <activity
             android:name=".koin_Package.KoinMainActivity"

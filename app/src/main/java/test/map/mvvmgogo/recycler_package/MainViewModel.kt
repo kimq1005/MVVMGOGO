@@ -21,6 +21,7 @@ class MainViewModel : ViewModel() {
         )
 
         _userProfileList.value = items
+
     }
 
     fun buttonClick(){
